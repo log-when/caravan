@@ -1,12 +1,13 @@
+// updated dependency by log-when
 package wishbone
 import caravan.bus.wishbone.{WishboneConfig, WishboneHost}
-import org.scalatest._
+import org.scalatest.flatspec._
+import org.scalatest.matchers.should._
 import chiseltest._
+import chiseltest.formal._
 import chisel3._
-import chiseltest.experimental.TestOptionBuilder._
-import chiseltest.internal.VerilatorBackendAnnotation
-
-class WishboneHostTest extends FreeSpec with ChiselScalatestTester {
+import org.scalatest.freespec._
+class WishboneHostTest extends AnyFreeSpec with ChiselScalatestTester {
 
   "just work" in {
     implicit val config = WishboneConfig(10, 32)

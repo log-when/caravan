@@ -1,12 +1,14 @@
+// updated dependency by log-when
 package tilelink
 import caravan.bus.tilelink.{DummyGpioController, TilelinkConfig}
-import chisel3._
-import org.scalatest._
+import org.scalatest.flatspec._
+import org.scalatest.matchers.should._
 import chiseltest._
-import chiseltest.experimental.TestOptionBuilder._
-import chiseltest.internal.VerilatorBackendAnnotation
+import chiseltest.formal._
+import chisel3._
+import org.scalatest.freespec._
 
-class GpioControllerTest extends FreeSpec with ChiselScalatestTester {
+class GpioControllerTest extends AnyFreeSpec with ChiselScalatestTester {
   "write 40 in OUTPUT_EN_REG and read it back" in {
     implicit val config = TilelinkConfig()
     test(new DummyGpioController()).withAnnotations(Seq(VerilatorBackendAnnotation)) {c =>

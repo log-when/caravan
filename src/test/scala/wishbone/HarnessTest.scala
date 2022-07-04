@@ -1,16 +1,16 @@
+// updated dependency by log-when
 package wishbone
 import caravan.bus.wishbone.{Harness, WishboneConfig, WBResponse, WBRequest}
-import chisel3._
-import org.scalatest._
+import org.scalatest.flatspec._
+import org.scalatest.matchers.should._
 import chiseltest._
-import chiseltest.ChiselScalatestTester
-import chiseltest.internal.VerilatorBackendAnnotation
-import chiseltest.experimental.TestOptionBuilder._
-import org.scalatest.FreeSpec
+import chiseltest.formal._
+import chisel3._
+import org.scalatest.freespec._
 
 import common.MemoryDumpFileHelper // necessary to import
 
-class HarnessTest extends FreeSpec with ChiselScalatestTester with MemoryDumpFileHelper {
+class HarnessTest extends AnyFreeSpec with ChiselScalatestTester with MemoryDumpFileHelper {
   "should write and read full word" in {
     implicit val config = WishboneConfig(10, 32)
     // val programFile = getFile

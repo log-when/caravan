@@ -1,16 +1,16 @@
+// updated dependency by log-when
 package tilelink
 import caravan.bus.tilelink.{SwitchHarness, TilelinkConfig, TLResponse, TLRequest}
-import chisel3._
-import org.scalatest._
+import org.scalatest.flatspec._
+import org.scalatest.matchers.should._
 import chiseltest._
-import chiseltest.ChiselScalatestTester
-import chiseltest.internal.VerilatorBackendAnnotation
-import chiseltest.experimental.TestOptionBuilder._
-import org.scalatest.FreeSpec
+import chiseltest.formal._
+import chisel3._
+import org.scalatest.freespec._
 
 import common.MemoryDumpFileHelper // necessary to import
 
-class SwitchHarnessTest extends FreeSpec with ChiselScalatestTester with MemoryDumpFileHelper {
+class SwitchHarnessTest extends AnyFreeSpec with ChiselScalatestTester with MemoryDumpFileHelper {
 
   "should write to all GPIO registers and read them back" in {
     implicit val config = TilelinkConfig()
