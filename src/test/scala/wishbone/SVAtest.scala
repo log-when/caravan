@@ -22,10 +22,9 @@ class WishboneHostProp(implicit config: WishboneConfig) extends WishboneHost()(c
   svaSeqAnno.makeSVAAnno(this.reset, ap(stb_o) |-> |- ap(stb_o) U ap(ack_i || err_i) -| || G ap(stb_o) )
 }
 
-class HarnessTest2 extends AnyFlatSpec with ChiselScalatestTester with Formal {
+class WishboneHostTest2 extends AnyFlatSpec with ChiselScalatestTester with Formal {
   
   implicit val config = WishboneConfig(10, 32)
-
   behavior of "WishboneHost"
   it should "pass" in {
     verify(new WishboneHostProp(), Seq(BoundedCheck(100), BtormcEngineAnnotation))
